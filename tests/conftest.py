@@ -33,7 +33,7 @@ def aws_credentials():
 @pytest.fixture(scope="function")
 def moto_dynamodb():
     with moto.mock_dynamodb():
-        dynamodb = boto3.resource("dynamodb")
+        dynamodb = boto3.resource("dynamodb", region_name = "us-east-2")
         dynamodb.create_table(
             TableName="jacobs_pytest_table",
             KeySchema=[{"AttributeName": "name_hash_pk", "KeyType": "HASH"}],
