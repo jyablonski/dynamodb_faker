@@ -6,7 +6,7 @@ import pytest
 import pytest_mock
 import moto
 
-from src.app import *
+from src.app import write_to_dynamodb
 
 # Fixtures are created when first requested by a test, and are destroyed based on their scope:
 # function: the default scope, the fixture is destroyed at the end of the test.
