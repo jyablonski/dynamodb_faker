@@ -35,17 +35,18 @@ fake = Faker()
 starttime = time.time()
 invocations = 0
 
-while True:
-    # this will loop for 14 seconds and then break
-    # invoke at 0s, 5s, 10s, but not at 15s bc im breaking it beforehand.
-    if time.time() > starttime + 14:
-        print(f"Breaking Execution after {invocations} invocations")
-        # print(f"printing {os.environ.get('test')}")
-        break
-    else:
-        invoke = write_to_dynamodb(fake, "jacob_test_table")
-        invocations += 1
-        time.sleep(
-            5 - ((time.time() - starttime) % 5)
-        )  # triggers once when the program starts, then every 5 seconds after
-        # time.sleep(5 - time.time() % 5)
+if __name__ == "__main__":
+    while True:
+        # this will loop for 14 seconds and then break
+        # invoke at 0s, 5s, 10s, but not at 15s bc im breaking it beforehand.
+        if time.time() > starttime + 14:
+            print(f"Breaking Execution after {invocations} invocations")
+            # print(f"printing {os.environ.get('test')}")
+            break
+        else:
+            invoke = write_to_dynamodb(fake, "jacob_test_table")
+            invocations += 1
+            time.sleep(
+                5 - ((time.time() - starttime) % 5)
+            )  # triggers once when the program starts, then every 5 seconds after
+            # time.sleep(5 - time.time() % 5)

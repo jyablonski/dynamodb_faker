@@ -1,11 +1,14 @@
 from datetime import datetime, timedelta
+import json
+import hashlib
 import os
 
+import awswrangler as wr
 import pytest
 import pytest_mock
 import moto
 
-from src.app import *
+from src.app import write_to_dynamodb
 
 # assert that the item was written to dynamodb, and that the hash PK is properly 32 characters long
 def test_write_to_dynamodb(moto_dynamodb, faker, aws_credentials):
