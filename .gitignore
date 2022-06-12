@@ -1,0 +1,13 @@
+.env
+.log
+*.log
+**pycache**
+.coverage
+.coveralls.yml
+.vscode
+.pytest_cache
+great_expectations
+logs/
+**.env
+**.__pycache__
+**/logs
