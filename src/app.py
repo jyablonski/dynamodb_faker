@@ -9,6 +9,7 @@ from faker import Faker
 import pandas as pd
 
 # quick script to store fake data to dynamodb every 5 seconds
+
 def write_to_dynamodb(faker_obj: Faker, dynamo_table: str):
     name = faker_obj.name()
     scrape_ts = datetime.now()
